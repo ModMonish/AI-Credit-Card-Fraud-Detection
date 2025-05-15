@@ -1,0 +1,53 @@
+
+
+## **🖼️ Assets Breakdown**
+### **1. Core Visualizations**
+| File | Description | Dimensions |
+|------|-------------|------------|
+| `confusion_matrix.png` | Model performance matrix | 1600×1200px |
+| `roc_curve.png` | AUC-ROC comparison | 1200×900px |
+| `feature_importance.png` | SHAP summary plot | 1800×1000px |
+
+### **2. Generated Reports**
+- `performance_report.pdf`: Detailed model evaluation (10 pages)
+- `technical_whitepaper.md`: System architecture documentation
+
+**Sample Visualization Code:**
+```python
+# Generate SHAP plot
+import shap
+explainer = shap.TreeExplainer(model)
+shap_values = explainer.shap_values(X_test)
+shap.summary_plot(shap_values, X_test, plot_type="bar", show=False)
+plt.savefig('assets/visualizations/feature_importance.png', dpi=300)
+```
+
+---
+
+## **🔧 Model Retraining**
+```bash
+# Nightly cron job setup
+0 3 * * * cd /AI-Fraud-Detection/phase2 && python 3_model_training.py >> retrain.log
+```
+
+## **📊 Asset Generation Pipeline**
+```mermaid
+graph LR
+    A[Raw Data] --> B[Preprocessing]
+    B --> C[EDA Notebook]
+    C --> D[Auto-Visualization]
+    D --> E[Report Generation]
+```
+
+---
+
+## **💾 Model & Asset Versioning**
+```bash
+# Save model with timestamp
+import datetime
+model.save_model(f'models/xgb_model_{datetime.datetime.now().strftime("%Y%m%d")}.json')
+
+# Archive assets
+tar -czvf assets_$(date +%Y%m%d).tar.gz assets/
+```
+
