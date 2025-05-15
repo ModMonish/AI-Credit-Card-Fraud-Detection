@@ -4,9 +4,6 @@ Here's a **professional README.md** file for your GitHub repository that showcas
 
 
 
-Here's a **professional README.md** file for your GitHub repository that showcases your fraud detection system's capabilities while maintaining clarity and technical precision:
-
----
 
 # **AI Credit Card Fraud Detection System**  
 🚀 *Real-time fraud detection with 99.2% accuracy using XGBoost and Streamlit*
